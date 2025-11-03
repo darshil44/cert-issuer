@@ -99,8 +99,6 @@ http://localhost:3000
 
 ## 🧑‍💻 Author
 **Darshil Dobariya**  
-_Aksharkala Certificate Generator_
-
+*darshildobariya44@gmail.com*
 ---
-
 > “Generate certificates with simplicity and elegance.”
