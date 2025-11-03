@@ -1,4 +1,3 @@
-[certificate_generator_readme.md](https://github.com/user-attachments/files/23298874/certificate_generator_readme.md)
 # 🎓 Certificate Generator API
 
 A simple Node.js app that creates beautiful certificates (PDF + JPG), uploads them to Supabase, and sends them to users via email using SendGrid.
