@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title><%= certificateTitle %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      /* Reset */
+      * { box-sizing: border-box; }
+      body {
+        font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+        margin: 0;
+        padding: 0;
+        color: #2b2b2b;
+      }
+
+      /* Page layout (A4 landscape) */
+      .page {
+        width: 297mm;
+        height: 210mm;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 18mm;
+        background: linear-gradient(135deg, #f7f6ff 0%, #fef6f0 100%);
+      }
+
+      .certificate {
+        width: 100%;
+        height: 100%;
+        border-radius: 18px;
+        padding: 40px;
+        position: relative;
+        box-shadow: 0 8px 24px rgba(32, 32, 64, 0.12);
+        background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));
+        border: 1px solid rgba(0,0,0,0.04);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .brand {
+        font-weight: 700;
+        font-size: 20px;
+        color: #3b3a66;
+      }
+
+      .decor {
+        width: 160px;
+        height: 50px;
+        border-radius: 10px;
+        background: linear-gradient(90deg, #dbeafe, #fce7f3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #444;
+        font-weight: 600;
+      }
+
+      .body {
+        text-align: center;
+        padding: 40px 10px;
+      }
+
+      .title {
+        font-size: 34px;
+        color: #2a2a4a;
+        margin-bottom: 8px;
+      }
+
+      .subtitle {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 32px;
+      }
+
+      .recipient {
+        font-size: 42px;
+        font-weight: 700;
+        color: #1f2547;
+        letter-spacing: 0.6px;
+        margin-bottom: 12px;
+      }
+
+      .details {
+        font-size: 16px;
+        color: #333;
+        line-height: 1.5;
+        margin: 0 auto;
+        max-width: 840px;
+      }
+
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+      }
+
+      .issuer {
+        text-align: left;
+      }
+
+      .issuer .name {
+        font-weight: 700;
+        color: #2b2b2b;
+      }
+
+      .seal {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .seal .circle {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: linear-gradient(180deg, #e8323b, #A50021);
+        border: 2px solid rgba(59,46,76,0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        color: #ffffff;
+      }
+
+      /* small print */
+      .meta {
+        font-size: 12px;
+        color: #777;
+        margin-top: 6px;
+      }
+
+      /* Responsive fallback for screenshots */
+      @media print {
+        .page { padding: 10mm; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="certificate" role="main">
+        <div class="header">
+          <div class="logo">
+            <div class="decor">Benefaction</div>
+            <div class="brand"><%= issuerName %></div>
+          </div>
+          <div style="text-align:right">
+            <div class="meta">Certificate ID: <%= baseUrl ? baseUrl + '/' + Date.now() : Date.now() %></div>
+            <div class="meta">Date: <%= date %></div>
+          </div>
+        </div>
+
+        <div class="body">
+          <div class="title"><%= certificateTitle %></div>
+          <div class="subtitle">presented to</div>
+
+          <div class="recipient"><%= name %></div>
+
+          <div class="details">
+            In recognition of outstanding achievement and contribution by
+            <strong><%= businessName %></strong>.<br />
+            <em>Business Address:</em> <%= businessAddress %><br />
+            <% if (gstNumber && gstNumber.length) { %>
+              <em>GST Number:</em> <%= gstNumber %>
+            <% } %>
+          </div>
+        </div>
+
+        <div class="footer">
+          <div class="issuer">
+            <div class="name"><%= issuerName %></div>
+            <div class="meta">Authorized Signatory</div>
+          </div>
+
+          <div class="seal">
+            <div class="circle">Seal</div>
+            <div class="meta">Stamp</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
