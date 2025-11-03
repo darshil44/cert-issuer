@@ -1,0 +1,42 @@
+{
+  "name": "certificate-generator",
+  "version": "1.0.0",
+  "description": "Certificate generation and email delivery system (PDF + JPG) using Node.js, Puppeteer, Supabase and Nodemailer",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "NODE_ENV=development nodemon server.js",
+    "lint": "eslint . --ext .js",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "certificate",
+    "pdf",
+    "jpg",
+    "puppeteer",
+    "supabase",
+    "nodemailer",
+    "express"
+  ],
+  "author": "Generated",
+  "license": "MIT",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.28.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.7.0",
+    "helmet": "^6.0.1",
+    "joi": "^17.9.2",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.9.3",
+    "puppeteer": "^23.3.0",
+    "winston": "^3.9.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.46.0",
+    "nodemon": "^2.0.22",
+    "prettier": "^3.0.0"
+  }
+}
